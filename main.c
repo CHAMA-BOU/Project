@@ -16,6 +16,8 @@ int main(){
     {
         start:
         printf("\t================ Welcome to Nom de Restau! ================\n");
+        printf("\t==== make sure you do not quit before validating your choices!====\n");
+        printf("\t\t====you have up to 10 choices to make!====\n");
         printf("================ S to Show Menu 		Q to Quit ================\n");//presente deux options afficher le menu ou quitter
         scanf(" %c", &order);
         /* si le client a choisi de quitter on lui demande de confirmer son choix
