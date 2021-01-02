@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <windows.h>
 #include "functions.h"
 
 
@@ -98,24 +98,22 @@ void showOthers(char **o){
 }
 
 // *********************************************************************
-void yourChoices(char **choices){
-    for(int i = 0; i<1; ++i){
+void yourChoices(char **choices, int nbChoix){
+    for(int i = 0; i<nbChoix; ++i){
         printf("%s\t\t", choices[i]);
     }
     printf("\n");
 }
 
 // *********************************************************************
-void addElements(char **choices, char **categ, int nb){
-    int i = 0;
-    choices[0] = categ[nb-1];
-    ++i;
+void addElements(char **choices, char **categ,int nb ,int nbChoix){
+    choices[nbChoix-1] = categ[nb-1];
 }
 
 // *********************************************************************
 
-void facture(char **choices, double prices[]){
-    system("clear");
+void facture(char **choices, double prices[], int nbChoix){
+    system("cls");
     printf("\t\t\tNom de Restaurant\n\t\t\t*******************\n");
     char curr_time[10], curr_date[12];
     strcpy(curr_date, __DATE__);
@@ -123,31 +121,20 @@ void facture(char **choices, double prices[]){
     printf("======== %s\t\t\t%s ========\n", curr_date, curr_time);
     printf("Facture N°:552 \t\t Client N°:54\n");
     printf("---------------------------------------------------------\n");
-    for(int i = 0; i<1; ++i){
+    for(int i = 0; i<nbChoix; ++i){
         printf("%d. %s\t\t %g  DH\n", i+1, choices[i], prices[i]);
     }
 
     double TTC=0;
-    for(int i=0; i<1; ++i){
+    for(int i=0; i<nbChoix; ++i){
         TTC += prices[i];
     }
     printf("---------------------------------------------------------\n");
     printf("TOTAL TTC %g DH\n\n\n\n", TTC);
-    printf("*************** Thanks for visiting us! *************** \n\t\t*******************");
 }
 
 
-void addPrices(double prices[], double categP[], int nb){
+void addPrices(double prices[], double categP[],int nb,int nbChoix){
 
-    int i = 0;
-    prices[0] = categP[nb-1];
-    ++i;
+    prices[nbChoix-1] = categP[nb-1];
 }
-
-
-
-
-
-
-
-
