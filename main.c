@@ -35,7 +35,7 @@ int main(){
 
         else if (order == 'S'){ //si le client a choisi de voir le menu
             menu: //label
-            nbChoix+=1,
+            nbChoix+=1;
             printf("================== Select your choices ==================\n");
             showCategories(categories_);
             printf("Enter nomber of categorie\n");
